@@ -15,9 +15,6 @@ namespace examination_prog
             Console.WriteLine("Skriv in ditt personnummer: ");
             personalNumber = Convert.ToInt32(Console.ReadLine());
 
-
-
-
             //12 numbers from 1753 - 2020
             //month 1 - 12
             //valid date to month 30 or 31
