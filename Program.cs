@@ -28,14 +28,17 @@ namespace examination_prog
             int yearCheck = Convert.ToInt32(year);
             if (yearCheck < 1753 || yearCheck > 2020)//checking for valid year
             {
-                Console.WriteLine("fel årtal");
                 Console.ReadKey();
                 return;
             }
             int monthCheck = Convert.ToInt32(month); //converting month and day to int
             int dayCheck = Convert.ToInt32(day);
-            MonthCalc(monthCheck, dayCheck, yearCheck); // calling on the month and day calculator method
-            if (MonthCalc(monthCheck, dayCheck, yearCheck))
+            if(monthCheck < 0 || monthCheck >= 13)
+            {
+                Console.ReadKey();
+                return;
+            }
+            if (MonthCalc(monthCheck, dayCheck, yearCheck))// calling on the month and day calculator method
             {
                 int birthCheck = Convert.ToInt32(birthNumber);
                 if (birthCheck < 0 || birthCheck > 999) //checking the fourth to second to last ssid numbers 
@@ -101,7 +104,6 @@ namespace examination_prog
             {// if bigger or smaller return false
                 return false;
             }
-
             return true;
         }
     }
