@@ -13,7 +13,6 @@ namespace examination_prog
             string ssid;
             Console.Write("Skriv in ett personnummer: ");
             ssid = Console.ReadLine(); //reading the user input of the social security id
-
             if (ssid.Length != 12) //if the number provided isn't 12 characters long, stop here
             {
                 Console.ReadKey();
@@ -23,7 +22,7 @@ namespace examination_prog
             string year = ssid.Substring(0, 4);
             string month = ssid.Substring(4, 2);
             string day = ssid.Substring(6, 2);
-            string birthNumber = ssid.Substring(8, 3); 
+            string birthNumber = ssid.Substring(8, 3);
 
             int yearCheck = Convert.ToInt32(year);
             if (yearCheck < 1753 || yearCheck > 2020)//checking for valid year
@@ -33,7 +32,7 @@ namespace examination_prog
             }
             int monthCheck = Convert.ToInt32(month); //converting month and day to int
             int dayCheck = Convert.ToInt32(day);
-            if(monthCheck < 0 || monthCheck >= 13)
+            if (monthCheck < 0 || monthCheck >= 13)//checking for valid month
             {
                 Console.ReadKey();
                 return;
@@ -57,6 +56,7 @@ namespace examination_prog
             }
             Console.ReadKey(); //stop
         }
+
         static bool MonthCalc(int monthCheck, int dayCheck, int yearCheck)//checking if the day is valid to the month inputted by the user
         {//checking if the inputted ssid is a leap year, if it is, february has 29 days and not 28
             bool leapYear = false;
@@ -72,7 +72,6 @@ namespace examination_prog
             {
                 leapYear = true;
             }
-
             if (monthCheck == 1 || monthCheck == 3 || monthCheck == 5 || monthCheck == 7 || monthCheck == 8 || monthCheck == 10 || monthCheck == 12)
             {//checking all the months with 31 days, that the day input isn't bigger or smaller than the month
                 bool dayOk = DayCheck(dayCheck, 32);
@@ -98,10 +97,11 @@ namespace examination_prog
             }
             return true;
         }
+
         static bool DayCheck(int dayCheck, int endDay)
         { //checking that the input day isn't bigger or smaller than the month
             if (dayCheck <= 0 || dayCheck >= endDay)
-            {// if bigger or smaller return false
+            {
                 return false;
             }
             return true;
