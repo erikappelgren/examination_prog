@@ -15,6 +15,7 @@ namespace examination_prog
             ssid = Console.ReadLine(); //reading the user input of the social security id
             if (ssid.Length != 12) //if the number provided isn't 12 characters long, stop here
             {
+                Console.WriteLine("Felaktigt personnummer!");
                 Console.ReadKey();
                 return;
             }
@@ -27,6 +28,7 @@ namespace examination_prog
             int yearCheck = Convert.ToInt32(year);
             if (yearCheck < 1753 || yearCheck > 2020)//checking for valid year
             {
+                Console.WriteLine("Felaktigt personnummer!");
                 Console.ReadKey();
                 return;
             }
@@ -34,6 +36,7 @@ namespace examination_prog
             int dayCheck = Convert.ToInt32(day);
             if (monthCheck < 0 || monthCheck >= 13)//checking for valid month
             {
+                Console.WriteLine("Felaktigt personnummer!");
                 Console.ReadKey();
                 return;
             }
@@ -42,6 +45,7 @@ namespace examination_prog
                 int birthCheck = Convert.ToInt32(birthNumber);
                 if (birthCheck < 0 || birthCheck > 999) //checking the fourth to second to last ssid numbers 
                 {
+                    Console.WriteLine("Felaktigt personnummer!");
                     return;
                 }
                 Console.WriteLine("{0} är ett korrekt personnummer!", ssid);
@@ -79,6 +83,7 @@ namespace examination_prog
             }
             else if (monthCheck == 4 || monthCheck == 6 || monthCheck == 9 || monthCheck == 11)
             {//checking months with 30 days
+                
                 bool dayOk = DayCheck(dayCheck, 31);
                 return dayOk;
             }
